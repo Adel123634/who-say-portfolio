@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WHO SAY? — Our Work. Our Stories.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#081A13;--green:#0F2A20;--moss:#1B4332;--gold:#E8B923;--cream:#F3EBD3;--mute:#b9c4b2;
+--f:"Bricolage Grotesque",system-ui,sans-serif;--ar:"Cairo","Segoe UI",Tahoma,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--f);line-height:1.5}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.hero{padding:clamp(72px,14vw,160px) 0 56px}
+.hero h1{font-size:clamp(3rem,10vw,8.5rem);line-height:.92;font-weight:800;letter-spacing:-.03em;max-width:11ch}
+.hero h1 span{display:block;color:var(--gold)}
+.hero p{margin-top:28px;font-size:1.25rem;color:var(--mute);max-width:34ch}
+.marquee{overflow:hidden;padding:28px 0;background:var(--green);border-block:1px solid var(--moss)}
+.track{display:flex;gap:28px;width:max-content;animation:slide 50s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes slideR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.track{animation-name:slideR}
+.logo{width:84px;height:84px;border-radius:50%;object-fit:cover;background:var(--cream);display:grid;place-items:center;color:var(--green);font-weight:800;flex:none;overflow:hidden}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+section{padding:88px 0}
+h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{all:unset;box-sizing:border-box;cursor:pointer;background:var(--green);border:1px solid var(--moss);border-radius:28px;padding:32px 20px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.card .logo{width:132px;height:132px}
+.card b{font-size:1.15rem}
+.card small{color:var(--mute)}
+.services{display:flex;gap:40px;flex-wrap:wrap}
+.svc{display:flex;align-items:center;gap:20px;font-size:1.4rem;font-weight:700}
+.svc .logo{width:110px;height:110px}
+.cta{background:var(--gold);color:var(--ink);text-align:center;padding:110px 0}
+.cta h2{font-family:var(--ar);font-weight:800;margin-bottom:16px}
+.cta p{font-family:var(--ar);font-size:1.5rem;font-weight:600;margin-bottom:36px}
+.btn{display:inline-block;background:var(--ink);color:var(--cream);padding:18px 38px;border-radius:999px;font-weight:800;text-decoration:none;font-size:1.05rem;transition:transform .2s}
+.btn:hover{transform:scale(1.05)}
+footer{padding:28px 0;color:var(--mute);font-size:.9rem}
+/* brand page */
+.page{position:fixed;inset:0;background:var(--ink);overflow:auto;z-index:20;display:none}
+.page.open{display:block;animation:open .35s ease}
+@keyframes open{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.bar{position:sticky;top:0;background:rgba(8,26,19,.92);backdrop-filter:blur(8px);padding:14px 24px;display:flex;align-items:center;gap:16px;z-index:2}
+.bar .logo{width:56px;height:56px}
+.bar h3{font-size:1.4rem;flex:1}
+.back{background:var(--gold);color:var(--ink);border:0;border-radius:999px;padding:12px 22px;font:800 1rem var(--f);cursor:pointer}
+.reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding:32px 0}
+.reel{aspect-ratio:9/16;background:var(--green);border:1px solid var(--moss);border-radius:22px;overflow:hidden;position:relative;display:grid;place-items:center;cursor:pointer;padding:0}
+.reel img,.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+.play{position:relative;width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-size:1.5rem;padding-left:4px}
+.reel.missing{cursor:default}
+.designs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding-bottom:48px}
+.designs img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;cursor:zoom-in}
+.view{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:30;display:none;place-items:center;cursor:zoom-out}
+.view.open{display:grid}.view img{max-width:92vw;max-height:92vh;border-radius:12px}
+.note{color:var(--mute);padding:32px 0}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.page.open{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<h1>OUR WORK. <span>OUR STORIES.</span></h1>
+<p>Ideas become stories. Stories become brands.</p>
+</div></header>
+
+<div class="marquee" aria-label="Brands we work with"><div class="track" id="track"></div></div>
+
+<section><div class="wrap"><h2>Brands</h2><div class="grid" id="grid"></div></div></section>
+
+<section style="background:var(--green)"><div class="wrap"><h2>Services</h2><div class="services" id="services"></div></div></section>
+
+<section class="cta"><div class="wrap" dir="rtl">
+<h2>مستني إيه عشان تكون جزء من عيلتنا؟</h2>
+<p>ابعتلنا حالاً... ويلا ننجح سوا!</p>
+<a class="btn" id="wa" href="#" target="_blank" rel="noopener" dir="ltr">LET’S WORK TOGETHER</a>
+</div></section>
+<footer><div class="wrap">WHO SAY? Creative Marketing Agency</div></footer>
+
+<div class="page" id="page" role="dialog" aria-modal="true" aria-labelledby="pname">
+<div class="bar"><span class="logo" id="plogo"></span><h3 id="pname"></h3><button class="back" id="close">Back</button></div>
+<div class="wrap"><div class="reels" id="reels"></div><div class="designs" id="designs"></div></div></div>
+<div class="view" id="view"><img alt=""></div>
+
+<script src="brands.js"></script>
+<script>
+const {brands,services,whatsapp}=window.SITE;
+const $=id=>document.getElementById(id);
+const logo=(b,cls="")=>{const s=document.createElement("span");s.className="logo "+cls;
+ const i=new Image();i.alt=b.name;i.src=`assets/logos/${b.slug}.png`;
+ i.onerror=()=>{i.remove();s.textContent=b.name.trim()[0]};s.append(i);return s};
+// marquee (duplicated for a seamless loop)
+const track=$("track");
+[...brands,...brands].forEach(b=>{const a=document.createElement("a");a.href="#"+b.slug;a.setAttribute("aria-label",b.name);a.append(logo(b));track.append(a)});
+// cards
+brands.forEach(b=>{const c=document.createElement("a");c.className="card";c.href="#"+b.slug;c.tabIndex=0;
+ c.append(logo(b));const n=document.createElement("b");n.textContent=b.name;
+ const m=document.createElement("small");m.textContent=b.reels?`${b.reels} reels`:"Reels coming soon";c.append(n,m);$("grid").append(c)});
+// services
+services.forEach(s=>{const d=document.createElement("div");d.className="svc";
+ d.append(logo({name:s.name,slug:""}));d.firstChild.querySelector("img").src=s.img;
+ const t=document.createElement("span");t.textContent=s.name;d.append(t);$("services").append(d)});
+// whatsapp
+$("wa").href="https://wa.me/"+whatsapp;
+// brand page
+const page=$("page");
+function open(slug){const b=brands.find(x=>x.slug===slug);if(!b){page.classList.remove("open");document.body.style.overflow="";return}
+ $("pname").textContent=b.name;$("plogo").replaceChildren(logo(b).firstChild);
+ const R=$("reels");R.replaceChildren();
+ if(!b.reels){const p=document.createElement("p");p.className="note";p.textContent="Reels coming soon.";R.append(p)}
+ for(let n=1;n<=(b.reels||0);n++){const t=document.createElement("button");t.className="reel";t.setAttribute("aria-label",`Play reel ${n} of ${b.name}`);
+  const p=new Image();p.alt="";p.src=`assets/reels/${b.slug}/${n}.jpg`;p.onerror=()=>p.remove();
+  const pl=document.createElement("span");pl.className="play";pl.textContent="▶";t.append(p,pl);
+  t.onclick=()=>{R.querySelectorAll("video").forEach(v=>v.pause());
+   const v=document.createElement("video");v.src = b.videoUrls?.[n - 1] || `assets/reels/${b.slug}/${n}.mp4`;v.controls=true;v.playsInline=true;v.autoplay=true;
+   t.replaceChildren(v);t.onclick=null};
+  R.append(t)}
+ const D=$("designs");D.replaceChildren();
+ for(let n=1;n<=(b.designs||0);n++){const i=new Image();i.alt=`${b.name} design ${n}`;i.src=`assets/designs/${b.slug}/${n}.jpg`;
+  i.onclick=()=>{$("view").firstChild.src=i.src;$("view").classList.add("open")};D.append(i)}
+ page.classList.add("open");page.scrollTop=0;document.body.style.overflow="hidden"}
+const route=()=>open(location.hash.slice(1));
+addEventListener("hashchange",route);route();
+$("close").onclick=()=>{history.pushState("",document.title,location.pathname);route()};
+$("view").onclick=e=>e.currentTarget.classList.remove("open");
+addEventListener("keydown",e=>{if(e.key==="Escape"){if($("view").classList.contains("open"))$("view").classList.remove("open");else $("close").click()}});
+</script>
+</body>
+</html>
